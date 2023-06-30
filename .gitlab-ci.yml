@@ -11,6 +11,6 @@ tests:
   stage: test
   script:
     - mvn test
-  artifacts:
-    paths:
-      - target/surefire-reports/*
+#  artifacts:
+#    paths:
+#      - target/surefire-reports/*
