@@ -1,8 +1,8 @@
-image: maven:3.8-openjdk-17
+image: maven:3.8-openjdk-11
 
 default:
   tags:
-    - runner
+    - shelllocal
 
 stages:
   - test
