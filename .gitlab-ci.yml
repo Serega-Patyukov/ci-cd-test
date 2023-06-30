@@ -1,4 +1,6 @@
 image: maven:3.8-openjdk-11
+build:
+  script: "mvn install -B"
 
 default:
   tags:
