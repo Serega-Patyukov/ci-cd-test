@@ -1,10 +1,16 @@
-stages:
-  - build
+image: maven:latest or image: maven:3-jdk-10 or image: maven:3-jdk-9
 
-maven-build:
-  image: maven:3-jdk-11
-  stage: build
-  script: "mvn package -B"
+default:
+  tags:
+    - shelllocal
+
+stages:
+  - test
+
+tests:
+  stage: test
+  script:
+    - mvn clean package
   artifacts:
     paths:
-      - target/ci-cd-test-0.0.1-SNAPSHOT.jar
+      - target/surefire-reports/*
