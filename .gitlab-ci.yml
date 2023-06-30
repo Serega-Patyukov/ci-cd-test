@@ -10,7 +10,7 @@ stages:
 tests:
   stage: test
   script:
-    - ./mvn clean package
+    - mvn test
   artifacts:
     paths:
       - target/surefire-reports/*
