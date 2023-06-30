@@ -1,0 +1,16 @@
+image: maven:3.8-openjdk-11
+
+default:
+  tags:
+    - shelllocal
+
+stages:
+  - test
+
+tests:
+  stage: test
+  script:
+    - mvn clean package
+  artifacts:
+    paths:
+      - target/surefire-reports/*
