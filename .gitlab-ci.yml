@@ -2,16 +2,10 @@ stages:
   - build
   - test
 
-# this job declares no tag: will be executed by default runner (#1)
-java-build:
-  image: maven:3.8-openjdk-11
+maven-build:
+  image: maven:3-jdk-11
   stage: build
-  script:
-    - Java build code here
-
-# this job declares no tag: will be executed by default runner (#1)
-java-test:
-  image: maven:3.8-openjdk-11
-  stage: test
-  script:
-    - Java test code here
+  script: "mvn package -B"
+  artifacts:
+    paths:
+      - target/ci-cd-test-0.0.1-SNAPSHOT.jar
