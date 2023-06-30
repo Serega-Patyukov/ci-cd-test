@@ -1,7 +1,7 @@
 image: maven:3.8-openjdk-11
 
-variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
+#variables:
+#  MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
 
 default:
   tags:
