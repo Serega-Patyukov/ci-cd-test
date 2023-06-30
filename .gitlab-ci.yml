@@ -1,16 +1,42 @@
-image: maven:3.8-openjdk-11
+image: maven:latest
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
 
 default:
   tags:
     - shelllocal
 
 stages:
+  - build
   - test
 
-tests:
-  stage: test
+build:
+  stage: build
+  only:
+    - dev
+    - merge_requests
+    - /^release\/.*$/
+  except:
+    - tags
   script:
-    - 'mvn test'
-  artifacts:
+    - 'mvn --settings $MAVEN_SETTINGS compile'
+  cache:
     paths:
-      - target/surefire-reports/*
+      - ./target
+      - ./.m2
+
+test:
+  stage: test
+  only:
+    - dev
+    - merge_requests
+    - /^release\/.*$/
+  except:
+    - tags
+  script:
+    - 'mvn --settings $MAVEN_SETTINGS test'
+  cache:
+    paths:
+      - ./target
+      - ./.m2
