@@ -14,4 +14,3 @@ tests:
   artifacts:
     paths:
       - target/surefire-reports/*
-#njxfhnzfdhfd
