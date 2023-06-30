@@ -1,13 +1,17 @@
-image: maven:3.8-openjdk-11
-
-default:
-  tags:
-    - shelllocal
-
 stages:
+  - build
   - test
 
-tests:
+# this job declares no tag: will be executed by default runner (#1)
+java-build:
+  image: maven:3.8-openjdk-11
+  stage: build
+  script:
+    - Java build code here
+
+# this job declares no tag: will be executed by default runner (#1)
+java-test:
+  image: maven:3.8-openjdk-11
   stage: test
   script:
-    - 'mvn test'
+    - Java test code here
