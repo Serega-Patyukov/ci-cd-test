@@ -8,10 +8,6 @@ stages:
   - test
 
 tests:
-  image: maven:3.8-openjdk-11
   stage: test
   script:
     - 'mvn test'
-  artifacts:
-    paths:
-      - target/surefire-reports/*
