@@ -10,7 +10,7 @@ stages:
 tests:
   stage: test
   script:
-    - mvn test
+    - mvn clean package
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
