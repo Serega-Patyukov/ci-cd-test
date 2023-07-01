@@ -11,12 +11,16 @@ stages:
 test:
   stage: test
   script:
-    - mvn clean package
+    - mvn test
   artifacts:
     paths:
-      - target/ci-cd-test-0.0.1-SNAPSHOT.jar
+      - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
+
 
 build:
   stage: build
   script:
-    - java -jar target/ci-cd-test-0.0.1-SNAPSHOT.jar
+    - mvn package
+  artifacts:
+    paths:
+      - target/ci-cd-test-0.0.1-SNAPSHOT.jar
