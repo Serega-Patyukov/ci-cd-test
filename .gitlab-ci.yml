@@ -6,11 +6,17 @@ default:
 
 stages:
   - test
+  - build
 
-tests:
+test:
   stage: test
   script:
     - mvn clean package
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
+
+build:
+  stage: build
+  script:
+    - java -jar target/ci-cd-test-0.0.1-SNAPSHOT.jar
