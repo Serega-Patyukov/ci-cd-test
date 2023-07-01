@@ -2,7 +2,7 @@ image: maven:3.8-openjdk-17
 
 default:
   tags:
-    - dockerrunner
+    - localshellrunner
 
 stages:
   - test
@@ -13,4 +13,4 @@ tests:
     - mvn test
   artifacts:
     paths:
-      - target/surefire-reports/*
+      - target/ci-cd-test-0.0.1-SNAPSHOT.jar
