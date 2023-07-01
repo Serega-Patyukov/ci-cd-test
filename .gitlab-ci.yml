@@ -16,7 +16,6 @@ test:
     paths:
       - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
 
-
 build:
   stage: build
   script:
