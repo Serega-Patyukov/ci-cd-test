@@ -19,7 +19,7 @@ build:
   stage: build
   tags:
     - localrunnerwindows
-  image: maven:3.8-openjdk-17, eclipse-temurin:17-jdk-alpine
+  image: eclipse-temurin:17-jdk-alpine
   script:
     - cd C:\GitLab-Runner
     - chcp 65001
