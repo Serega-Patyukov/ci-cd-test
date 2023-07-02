@@ -20,6 +20,7 @@ build:
   stage: build
   script:
     - mvn package
+    - docker build -t seregapatyukov/ci-cd-test .
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
