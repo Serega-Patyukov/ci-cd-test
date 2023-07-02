@@ -20,7 +20,7 @@ build:
   tags:
     - localrunnerwindows
   script:
-    - @Echo off
+    - Echo off
     - start cmd.exe /c "chcp 1251
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
