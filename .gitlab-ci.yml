@@ -22,7 +22,7 @@ build:
   image: maven:3.8-openjdk-17
   script:
     - cd C:\GitLab-Runner
-    - chcp 1251
+    - chcp 65001
     - java -version
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
