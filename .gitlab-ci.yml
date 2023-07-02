@@ -2,7 +2,8 @@
 stages:
   - test
   - build
-  - deploy
+  - deploy-dev
+  - deploy-prod
 
 test:
   stage: test
@@ -22,18 +23,31 @@ build:
   script:
     - chcp 65001
     - mvn package
-    - docker stop ci-cd-test
-    - docker rm ci-cd-test
+    - docker stop ci-cd-test-test
+    - docker rm ci-cd-test-test
     - docker rmi seregapatyukov/ci-cd-test:latest
     - docker build -t seregapatyukov/ci-cd-test .
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
+  allow failure: true
 
-deploy:
-  stage: deploy
+deploy-dev:
+  stage: deploy-dev
   tags:
     - localrunnerwindows
   script:
     - chcp 65001
-    - docker run -d -p 8080:8080 --name ci-cd-test seregapatyukov/ci-cd-test
+    - docker run -d -p 8080:8080 --name ci-cd-test-test seregapatyukov/ci-cd-test
+
+deploy-prod:
+  stage: deploy-prod
+  tags:
+    - localrunnerwindows
+  script:
+    - chcp 65001
+    - docker stop ci-cd-test-prod
+    - docker rm ci-cd-test-prod
+    - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test
+  allow failure: true
+  when: manual
