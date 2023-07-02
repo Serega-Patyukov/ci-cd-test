@@ -18,12 +18,9 @@ test:
 build:
   stage: build
   tags:
-    - localrunnerdocker
-  image: maven:3.8-openjdk-17
-#  tags:
-#    - localrunnerwindows
+    - localrunnerwindows
   script:
-#    - chcp 65001
+    - chcp 65001
     - mvn package
     - docker stop ci-cd-test
     - docker rm ci-cd-test
@@ -36,10 +33,7 @@ build:
 deploy:
   stage: deploy
   tags:
-    - localrunnerdocker
-  image: maven:3.8-openjdk-17
-#  tags:
-#    - localrunnerwindows
+    - localrunnerwindows
   script:
-#    - chcp 65001
+    - chcp 65001
     - docker run -d -p 8080:8080 --name ci-cd-test seregapatyukov/ci-cd-test
