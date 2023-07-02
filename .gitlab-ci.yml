@@ -30,7 +30,6 @@ build:
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
-  allow_failure: true
 
 deploy-dev:
   stage: deploy-dev
@@ -46,8 +45,7 @@ deploy-prod:
     - localrunnerwindows
   script:
     - chcp 65001
-    - docker stop ci-cd-test-prod
-    - docker rm ci-cd-test-prod
+#    - docker stop ci-cd-test-prod
+#    - docker rm ci-cd-test-prod
     - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test
-  allow_failure: true
   when: manual
