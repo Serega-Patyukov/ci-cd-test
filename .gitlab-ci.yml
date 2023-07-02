@@ -2,7 +2,7 @@
 stages:
   - test
   - build
-#  - deplogjgdhhbdghfghfgjyjfgb5ryr5ryvbxvxvxdsdzdsgdhrhgdergerdg
+  - deploy
 
 test:
   stage: test
@@ -26,3 +26,15 @@ build:
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
+
+deploy:
+  stage: deploy
+  tags:
+    - localrunnerwindows
+  script:
+    - chcp 65001
+    - docker stop ci-cd-test
+    - docker rm ci-cd-test
+    - docker rmi seregapatyukov/ci-cd-test:latest
+    - docker build -t seregapatyukov/ci-cd-test .
+    - docker run -d -p 8080:8080 --name ci-cd-test seregapatyukov/ci-cd-test
