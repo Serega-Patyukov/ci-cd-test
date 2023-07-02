@@ -22,6 +22,9 @@ build:
   script:
     - chcp 65001
     - mvn package
+    - docker stop ci-cd-test
+    - docker rm ci-cd-test
+    - docker rmi seregapatyukov/ci-cd-test:latest
     - docker build -t seregapatyukov/ci-cd-test .
   artifacts:
     paths:
@@ -33,8 +36,4 @@ deploy:
     - localrunnerwindows
   script:
     - chcp 65001
-    - docker stop ci-cd-test
-    - docker rm ci-cd-test
-    - docker rmi seregapatyukov/ci-cd-test:latest
-    - docker build -t seregapatyukov/ci-cd-test .
     - docker run -d -p 8080:8080 --name ci-cd-test seregapatyukov/ci-cd-test
