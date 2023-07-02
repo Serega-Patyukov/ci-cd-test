@@ -1,25 +1,24 @@
-#image: maven:3.8-openjdk-17
 
 stages:
-#  - test
+  - test
   - build
 #  - deplogjgdhhbdghfghfgjyjfgb5ryr5ryvbxvxvxdsdzdsgdhrhgdergerdg
 
-#test:
-#  stage: test
-#  tags:
-#    - localrunnerdocker
-#  script:
-#    - mvn test
-#  artifacts:
-#    paths:
-#      - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
+test:
+  stage: test
+  tags:
+    - localrunnerdocker
+  image: maven:3.8-openjdk-17
+  script:
+    - mvn test
+  artifacts:
+    paths:
+      - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
 
 build:
   stage: build
   tags:
     - localrunnerwindows
-  image: eclipse-temurin:17-jdk-alpine
   script:
     - chcp 65001
     - mvn package
