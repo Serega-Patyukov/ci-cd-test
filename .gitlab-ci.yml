@@ -3,7 +3,7 @@ image: maven:3.8-openjdk-17
 stages:
 #  - test
   - build
-#  - deplogjgdhhbdghfghfgjyj
+#  - deplogjgdhhbdghfghfgjyjfgb
 
 #test:
 #  stage: test
@@ -22,6 +22,7 @@ build:
   image: eclipse-temurin:17-jdk-alpine
   script:
     - cd C:\GitLab-Runner
+    - ls
     - chcp 65001
     - java -version
     - mvn package
