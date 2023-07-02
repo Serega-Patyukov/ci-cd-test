@@ -1,15 +1,13 @@
 image: maven:3.8-openjdk-17
 
-default:
-  tags:
-    - localrunnerdocker
-
 stages:
   - test
   - build
 
 test:
   stage: test
+  tags:
+    - localrunnerdocker
   script:
     - mvn test
   artifacts:
@@ -18,6 +16,8 @@ test:
 
 build:
   stage: build
+  tags:
+    - localrunnerwindows
   script:
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
