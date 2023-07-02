@@ -22,6 +22,7 @@ build:
   script:
     - Echo off
     - start cmd.exe /c "chcp 1251
+    - java -version
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
   artifacts:
