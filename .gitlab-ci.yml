@@ -23,7 +23,7 @@ build:
 #  tags:
 #    - localrunnerwindows
   script:
-    - chcp 65001
+#    - chcp 65001
     - mvn package
     - docker stop ci-cd-test
     - docker rm ci-cd-test
@@ -41,5 +41,5 @@ deploy:
 #  tags:
 #    - localrunnerwindows
   script:
-    - chcp 65001
+#    - chcp 65001
     - docker run -d -p 8080:8080 --name ci-cd-test seregapatyukov/ci-cd-test
