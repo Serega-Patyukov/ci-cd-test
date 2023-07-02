@@ -45,7 +45,7 @@ deploy-prod:
     - localrunnerwindows
   script:
     - chcp 65001
-#    - docker stop ci-cd-test-prod
-#    - docker rm ci-cd-test-prod
+    - docker stop ci-cd-test-prod
+    - docker rm ci-cd-test-prod
     - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test
   when: manual
