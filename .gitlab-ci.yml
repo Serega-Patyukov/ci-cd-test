@@ -25,7 +25,7 @@ build:
     - mvn package
     - docker stop ci-cd-test-test
     - docker rm ci-cd-test-test
-#    - docker rmi seregapatyukov/ci-cd-test-test
+    - docker rmi seregapatyukov/ci-cd-test-test
     - docker build -t seregapatyukov/ci-cd-test-test .
   artifacts:
     paths:
@@ -37,7 +37,7 @@ deploy-dev:
     - localrunnerwindows
   script:
     - chcp 65001
-    - docker run -d -p 8080:8080 --name ci-cd-test-test seregapatyukov/ci-cd-test
+    - docker run -d -p 8080:8080 --name ci-cd-test-test seregapatyukov/ci-cd-test-test
 
 deploy-prod:
   stage: deploy-prod
@@ -47,7 +47,7 @@ deploy-prod:
     - chcp 65001
     - docker stop ci-cd-test-prod
     - docker rm ci-cd-test-prod
-#    - docker rmi seregapatyukov/ci-cd-test-prod
+    - docker rmi seregapatyukov/ci-cd-test-prod
     - docker build -t seregapatyukov/ci-cd-test-prod .
-    - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test
+    - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test-prod
   when: manual
