@@ -22,7 +22,9 @@ build:
   image: eclipse-temurin:17-jdk-alpine
   script:
     - cd C:\GitLab-Runner
+    - chcp
     - chcp 65001
+    - chcp
     - java -version
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
