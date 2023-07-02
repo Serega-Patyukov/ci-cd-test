@@ -21,7 +21,7 @@ class ControllerTestTest {
 
     @Test
     void test() throws Exception {
-        this.mockMvc.perform(get("/test"))
+        this.mockMvc.perform(get("/test/get"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("OK")));
