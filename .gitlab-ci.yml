@@ -3,7 +3,7 @@ image: maven:3.8-openjdk-17
 stages:
 #  - test
   - build
-#  - deplo
+#  - deplogjgc
 
 #test:
 #  stage: test
