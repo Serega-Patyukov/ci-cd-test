@@ -19,6 +19,7 @@ build:
   stage: build
   tags:
     - localrunnerwindows
+  image: maven:3.8-openjdk-17
   script:
     - Echo off
     - start cmd.exe /c "chcp 1251
