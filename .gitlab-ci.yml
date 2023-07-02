@@ -21,8 +21,8 @@ build:
     - localrunnerwindows
   image: maven:3.8-openjdk-17
   script:
-    - Echo off
-    - start cmd.exe /c "chcp 1251
+    - cd C:\GitLab-Runner
+    - chcp 1251
     - java -version
     - mvn package
     - docker build -t seregapatyukov/ci-cd-test .
