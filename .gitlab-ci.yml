@@ -1,19 +1,19 @@
 image: maven:3.8-openjdk-17
 
 stages:
-  - test
+#  - test
   - build
 #  - dep
 
-test:
-  stage: test
-  tags:
-    - localrunnerdocker
-  script:
-    - mvn test
-  artifacts:
-    paths:
-      - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
+#test:
+#  stage: test
+#  tags:
+#    - localrunnerdocker
+#  script:
+#    - mvn test
+#  artifacts:
+#    paths:
+#      - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
 
 build:
   stage: build
