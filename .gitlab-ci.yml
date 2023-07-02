@@ -22,7 +22,6 @@ build:
   image: eclipse-temurin:17-jdk-alpine
   script:
     - cd C:\GitLab-Runner
-    - ls
     - chcp 65001
     - java -version
     - mvn package
