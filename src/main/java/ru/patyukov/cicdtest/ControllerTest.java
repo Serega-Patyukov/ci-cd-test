@@ -11,7 +11,7 @@ public class ControllerTest {
 
     @GetMapping("/get")
     public @ResponseBody String test() {
-        return "OK!";
+        return "errors";
     }
 
     @GetMapping("/home")
