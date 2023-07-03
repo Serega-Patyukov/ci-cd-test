@@ -46,12 +46,11 @@ build-prod:
     - localrunnerwindows
   script:
     - chcp 65001
-    - mvn package
     - docker stop ci-cd-test-prod
     - docker rm ci-cd-test-prod
     - docker rmi seregapatyukov/ci-cd-test-prod
     - docker build -t seregapatyukov/ci-cd-test-prod .
-  when: manual
+#  when: manual
 
 deploy-prod:
   stage: deploy-prod
@@ -60,4 +59,4 @@ deploy-prod:
   script:
     - chcp 65001
     - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test-prod
-  when: manual
+#  when: manual
