@@ -16,6 +16,6 @@ public class ControllerTest {
 
     @GetMapping("/home")
     public @ResponseBody String home() {
-        return "home 0";
+        return "home";
     }
 }
