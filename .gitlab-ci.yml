@@ -51,7 +51,7 @@ build-prod:
     - docker rm ci-cd-test-prod
     - docker rmi seregapatyukov/ci-cd-test-prod
     - docker build -t seregapatyukov/ci-cd-test-prod .
-#  when: manual
+  when: manual
 
 deploy-prod:
   stage: deploy-prod
