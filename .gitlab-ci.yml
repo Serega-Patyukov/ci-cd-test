@@ -60,3 +60,4 @@ deploy-prod:
   script:
     - chcp 65001
     - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test-prod
+  when: manual
