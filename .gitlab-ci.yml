@@ -23,10 +23,15 @@ build:
   script:
     - chcp 65001
     - mvn package
+
     - docker stop ci-cd-test-test
     - docker rm ci-cd-test-test
     - docker rmi seregapatyukov/ci-cd-test-test
-    - docker build -t seregapatyukov/ci-cd-test-test .
+
+#    - docker stop ci-cd-test-dev
+#    - docker rm ci-cd-test-dev
+#    - docker rmi seregapatyukov/ci-cd-test-dev
+    - docker build -t seregapatyukov/ci-cd-test-dev .
   artifacts:
     paths:
       - target/ci-cd-test-0.0.1-SNAPSHOT.jar
@@ -37,7 +42,7 @@ deploy-dev:
     - localrunnerwindows
   script:
     - chcp 65001
-    - docker run -d -p 8080:8080 --name ci-cd-test-test seregapatyukov/ci-cd-test-test
+    - docker run -d -p 8080:8080 --name ci-cd-test-dev seregapatyukov/ci-cd-test-dev
 
 deploy-prod:
   stage: deploy-prod
