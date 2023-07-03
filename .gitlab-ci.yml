@@ -1,8 +1,9 @@
 
 stages:
   - test
-  - build
+  - build-dev
   - deploy-dev
+  - build-prod
   - deploy-prod
 
 test:
@@ -16,21 +17,16 @@ test:
     paths:
       - target/surefire-reports/ru.patyukov.cicdtest.CiCdTestApplicationTests.txt
 
-build:
-  stage: build
+build-dev:
+  stage: build-dev
   tags:
     - localrunnerwindows
   script:
     - chcp 65001
     - mvn package
-
-    - docker stop ci-cd-test-test
-    - docker rm ci-cd-test-test
-    - docker rmi seregapatyukov/ci-cd-test-test
-
-#    - docker stop ci-cd-test-dev
-#    - docker rm ci-cd-test-dev
-#    - docker rmi seregapatyukov/ci-cd-test-dev
+    - docker stop ci-cd-test-dev
+    - docker rm ci-cd-test-dev
+    - docker rmi seregapatyukov/ci-cd-test-dev
     - docker build -t seregapatyukov/ci-cd-test-dev .
   artifacts:
     paths:
@@ -44,8 +40,8 @@ deploy-dev:
     - chcp 65001
     - docker run -d -p 8080:8080 --name ci-cd-test-dev seregapatyukov/ci-cd-test-dev
 
-deploy-prod:
-  stage: deploy-prod
+build-prod:
+  stage: build-prod
   tags:
     - localrunnerwindows
   script:
@@ -54,5 +50,12 @@ deploy-prod:
     - docker rm ci-cd-test-prod
     - docker rmi seregapatyukov/ci-cd-test-prod
     - docker build -t seregapatyukov/ci-cd-test-prod .
-    - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test-prod
   when: manual
+
+deploy-prod:
+  stage: deploy-prod
+  tags:
+    - localrunnerwindows
+  script:
+    - chcp 65001
+    - docker run -d -p 8090:8090 --name ci-cd-test-prod seregapatyukov/ci-cd-test-prod
