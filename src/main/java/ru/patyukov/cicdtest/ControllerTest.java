@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/andreika")
 public class ControllerTest {
 
     @GetMapping("/get")
     public @ResponseBody String test() {
-        return "OK";
+        return "Привет Андрейка!!! Не открывай непонятные ссылки !!! Метод get";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/set")
     public @ResponseBody String home() {
-        return "home";
+        return "Привет Андрейка!!! Не открывай непонятные ссылки !!! Метод set";
     }
 }
