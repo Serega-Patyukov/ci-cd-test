@@ -13,9 +13,10 @@ public class ControllerTest {
     public @ResponseBody String test() {
         try {
             Thread.sleep(1000);
+            System.out.println(Thread.currentThread().getName());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }
+        };
         return "Привет Андрейка!!! Не открывай непонятные ссылки !!! А если от меня пришла не понятная ссылка, то лучше уточни у меня что за ссылка !!! метод get";
     }
 
