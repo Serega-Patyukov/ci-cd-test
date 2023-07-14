@@ -12,7 +12,7 @@ public class ControllerTest {
     @GetMapping("/get")
     public @ResponseBody String test() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             System.out.println(Thread.currentThread().getName());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
