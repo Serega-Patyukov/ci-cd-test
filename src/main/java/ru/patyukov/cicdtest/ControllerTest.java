@@ -14,8 +14,8 @@ public class ControllerTest {
     @GetMapping("/get")
     public @ResponseBody String test() {
         try {
-            Thread.sleep(5000);
-            log.info("name thread - {}", Thread.currentThread().getName());
+            Thread.sleep(1000);
+            log.info("name thread - {}, group - {}", Thread.currentThread().getName(), Thread.currentThread().getThreadGroup());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         };
