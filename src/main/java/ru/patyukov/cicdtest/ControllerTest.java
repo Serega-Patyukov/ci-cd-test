@@ -1,10 +1,12 @@
 package ru.patyukov.cicdtest;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/andreika")
 public class ControllerTest {
@@ -13,7 +15,7 @@ public class ControllerTest {
     public @ResponseBody String test() {
         try {
             Thread.sleep(5000);
-            System.out.println(Thread.currentThread().getName());
+            log.info("name thread - {}", Thread.currentThread().getName());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         };
