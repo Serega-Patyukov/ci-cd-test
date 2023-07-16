@@ -13,7 +13,7 @@ public class ControllerTest {
 
     @GetMapping("/status")
     public @ResponseBody String status() {
-        return "Deploy OK";
+        return "*** Deploy OK";
     }
 
     @GetMapping("/get")
