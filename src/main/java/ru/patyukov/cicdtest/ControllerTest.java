@@ -8,22 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/andreika")
+@RequestMapping("/test")
 public class ControllerTest {
 
+    @GetMapping("/status")
+    public @ResponseBody String status() {
+        return "Deploy OK";
+    }
+
     @GetMapping("/get")
-    public @ResponseBody String test() {
-        try {
-            Thread.sleep(1000);
-            log.info("name thread - {}, group - {}", Thread.currentThread().getName(), Thread.currentThread().getThreadGroup());
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        };
+    public @ResponseBody String get() {
         return "*** Привет Андрейка!!! Не открывай непонятные ссылки !!! А если от меня пришла не понятная ссылка, то лучше уточни у меня что за ссылка !!! метод get";
     }
 
     @GetMapping("/set")
-    public @ResponseBody String home() {
+    public @ResponseBody String set() {
         return "*** Привет Андрейка!!! Не открывай непонятные ссылки !!! А если от меня пришла не понятная ссылка, то лучше уточни у меня что за ссылка !!! метод set";
     }
 }
